@@ -93,6 +93,7 @@ export const commentPost = (value, id) => async (dispatch) => {
     return data.comments;
   } catch (error) {
     console.log(error);
+    return null;
   }
 };
 

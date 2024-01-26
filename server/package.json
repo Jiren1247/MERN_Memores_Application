@@ -25,6 +25,7 @@
     "@babel/plugin-transform-modules-commonjs": "^7.22.5",
     "jest": "^27.5.1",
     "mockingoose": "^2.16.2",
-    "nodemon": "^2.0.6"
+    "nodemon": "^2.0.6",
+    "webpack-cli": "^5.1.4"
   }
 }

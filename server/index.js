@@ -11,15 +11,15 @@ import userRouter from "./routes/user.js";
 const app = express();
 
 //限流处理（限流值可自己调节）
-const apiLimiter = rateLimit({
-	windowMs: 15 * 60 * 1000, // 15 minutes
-	max: 1, // Limit each IP to 100 requests per `window` (here, per 15 minutes)
-	standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
-	legacyHeaders: false, // Disable the `X-RateLimit-*` headers
-})
+// const apiLimiter = rateLimit({
+// 	windowMs: 15 * 60 * 1000, // 15 minutes
+// 	max: 1, // Limit each IP to 100 requests per `window` (here, per 15 minutes)
+// 	standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
+// 	legacyHeaders: false, // Disable the `X-RateLimit-*` headers
+// })
 
-// Apply the rate limiting middleware to API calls only
-app.use('/posts', apiLimiter)
+// // Apply the rate limiting middleware to API calls only
+// app.use('/posts', apiLimiter)
 
 app.use(express.json({ limit: '30mb', extended: true }))
 app.use(express.urlencoded({ limit: '30mb', extended: true }))
@@ -37,3 +37,4 @@ mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: tr
   .catch((error) => console.log(`${error} did not connect`));
 
 mongoose.set('useFindAndModify', false);
+
